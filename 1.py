@@ -51,7 +51,8 @@ def macdo(u, p, url):
         driver.find_element_by_xpath("//*[@class='btn btn-warning btn-sm sign-btn']").click()
     except Exception as error:
         print(error)
-        push('macdo')
+        push(u + url)
 
 
+macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/')
 macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/')
