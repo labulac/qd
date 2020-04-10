@@ -51,8 +51,27 @@ def macdo(u, p, url):
         driver.find_element_by_xpath("//*[@class='btn btn-warning btn-sm sign-btn']").click()
     except Exception as error:
         print(error)
-        push(u + url)
+        push('用户名：' + u + '，地址：' + url + '，')
+
+
+def pcbeta(u, p, url):
+    try:
+        driver = webdriver.Chrome(chrome_options=option)
+        driver.get(url)
+        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/div[2]/div/div/form/div/div[1]/table/tbody/tr/td[1]/input")))
+
+        driver.find_element_by_xpath("/html/body/div/div/div/div/div[2]/div/div/form/div/div[1]/table/tbody/tr/td[1]/input").send_keys(u)
+
+        driver.find_element_by_xpath("/html/body/div/div/div/div/div[2]/div/div/form/div/div[2]/table/tbody/tr/td[1]/input").send_keys(p)
+        driver.find_element_by_xpath("//*[@class='pn pnc']").click()
+        time.sleep(10)
+        driver.get('http://i.pcbeta.com/home.php?mod=task&do=apply&id=149')
+        time.sleep(10)
+    except Exception as error:
+        print(error)
+        push('用户名：' + u + '，地址：' + url + '，')
 
 
 macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/')
 macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/')
+pcbeta('labulac', 'Aa1357954163', 'http://bbs.pcbeta.com/member.php?mod=logging&action=login')
