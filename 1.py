@@ -40,13 +40,13 @@ def macdo(u, p, url):
     try:
         driver = webdriver.Chrome(chrome_options=option)
         driver.get(url)
-        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@id='go-signin']")))
+        WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.XPATH, "//*[@id='go-signin']")))
 
         driver.find_element_by_xpath("//*[@id='go-signin']").click()
         driver.find_element_by_xpath("//*[@id='user_login-input']").send_keys(u)
         driver.find_element_by_xpath("//*[@id='password-input']").send_keys(p)
         driver.find_element_by_xpath("//*[@class='btn btn-info btn-block submit']").click()
-        WebDriverWait(driver, 20).until(
+        WebDriverWait(driver, 30).until(
             EC.presence_of_element_located((By.XPATH, "//*[@class='btn btn-warning btn-sm sign-btn']")))
         driver.find_element_by_xpath("//*[@class='btn btn-warning btn-sm sign-btn']").click()
     except Exception as error:
@@ -58,15 +58,15 @@ def pcbeta(u, p, url):
     try:
         driver = webdriver.Chrome(chrome_options=option)
         driver.get(url)
-        WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/div[2]/div/div/form/div/div[1]/table/tbody/tr/td[1]/input")))
+        WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/div[2]/div/div/form/div/div[1]/table/tbody/tr/td[1]/input")))
 
         driver.find_element_by_xpath("/html/body/div/div/div/div/div[2]/div/div/form/div/div[1]/table/tbody/tr/td[1]/input").send_keys(u)
 
         driver.find_element_by_xpath("/html/body/div/div/div/div/div[2]/div/div/form/div/div[2]/table/tbody/tr/td[1]/input").send_keys(p)
         driver.find_element_by_xpath("//*[@class='pn pnc']").click()
-        time.sleep(10)
+        time.sleep(30)
         driver.get('http://i.pcbeta.com/home.php?mod=task&do=apply&id=149')
-        time.sleep(10)
+        time.sleep(30)
     except Exception as error:
         print(error)
         push('用户名：' + u + '，地址：' + url + '，')
