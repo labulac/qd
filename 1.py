@@ -63,7 +63,7 @@ def push(name):
 
 update()
 option = webdriver.ChromeOptions()
-#option.add_argument('-headless')
+option.add_argument('-headless')
 option.add_argument('-no-sandbox')
 option.add_argument('-incognito')
 option.add_argument('-blink-settings=imagesEnabled=false')
