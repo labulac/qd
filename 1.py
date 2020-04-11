@@ -9,11 +9,10 @@ def update():
     with open('2.py', 'r') as f:
         a = f.read()
 
-    print(a)
 
     r = requests.get("https://qd.labulac.top/2.py")
     b = r.text
-    print(b)
+
 
     if a != b:
         print("检测到更新")
