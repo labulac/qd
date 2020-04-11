@@ -176,19 +176,19 @@ def wuai(u, p, url, n):
         WebDriverWait(driver, 60).until(EC.presence_of_element_located(
             (By.XPATH, ".//*[@id='ptlogin_iframe']")))
         iframe = driver.find_element_by_xpath(".//*[@id='ptlogin_iframe']")
-        driver.switch_to_frame(iframe)
+        driver.switch_to.frame(iframe)
         driver.find_element_by_xpath(".//*[@id='switcher_plogin']").click()
         driver.find_element_by_xpath(".//*[@id='u']").send_keys(u)
         driver.find_element_by_xpath(".//*[@id='p']").send_keys(p)
         driver.find_element_by_xpath(".//*[@id='login_button']").click()
         # qq登录结束区
+        time.sleep(85)
 
         WebDriverWait(driver, 60).until(
-            EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/p[2]/a[1]/img")))
-        driver.find_element_by_xpath(
-            "/html/body/div/div/div/div/p[2]/a[1]/img").click()
+            EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/p[1]/strong/a")))
+        driver.get('https://www.52pojie.cn/home.php?mod=task&do=apply&id=2')
 
-        time.sleep(5)
+
         driver.quit()
         print("ok")
     except Exception as error:
