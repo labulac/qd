@@ -17,4 +17,5 @@ option.add_argument('–disable-images')
 driver = webdriver.Chrome(chrome_options=option)
 driver.get('https://www.alexamaster.net/Master/141662')
 time.sleep(600)
+
 driver.quit()
