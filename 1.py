@@ -47,7 +47,7 @@ def push(name):
 
 update()
 option = webdriver.ChromeOptions()
-option.add_argument('-headless')
+#option.add_argument('-headless')
 option.add_argument('-no-sandbox')
 option.add_argument('-incognito')
 option.add_argument('-blink-settings=imagesEnabled=false')
@@ -59,7 +59,7 @@ option.add_argument('–lang=zh-CN')
 option.add_argument('–disable-images')
 
 
-def macdo(u, p, url):
+def macdo(u, p, url,n):
     try:
         driver = webdriver.Chrome(chrome_options=option)
         driver.get(url)
@@ -77,10 +77,10 @@ def macdo(u, p, url):
         print("ok")
     except Exception as error:
         print(error)
-        push('用户名：' + u + '，地址：' + url + '，')
+        push('用户名：' + u + '，站点：' + n + '，')
 
 
-def pcbeta(u, p, url):
+def pcbeta(u, p, url,n):
     try:
         driver = webdriver.Chrome(chrome_options=option)
         driver.get(url)
@@ -101,10 +101,10 @@ def pcbeta(u, p, url):
         print("ok")
     except Exception as error:
         print(error)
-        push('用户名：' + u + '，地址：' + url + '，')
+        push('用户名：' + u + '，站点：' + n + '，')
 
 
-def kafan(u, p, url):
+def kafan(u, p, url,n):
     try:
         driver = webdriver.Chrome(chrome_options=option)
         driver.get(url)
@@ -126,10 +126,10 @@ def kafan(u, p, url):
         print("ok")
     except Exception as error:
         print(error)
-        push('用户名：' + u + '，地址：' + url + '，')
+        push('用户名：' + u + '，站点：' +n + '，')
 
 
-def ruipaike(u, p, url):
+def ruipaike(u, p, url,n):
     try:
         driver = webdriver.Chrome(chrome_options=option)
         driver.get(url)
@@ -161,11 +161,44 @@ def ruipaike(u, p, url):
         print("ok")
     except Exception as error:
         print(error)
-        push('用户名：' + u + '，地址：' + url + '，')
+        push('用户名：' + u + '，站点：' + n + '，')
 
 
-macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/')
-macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/')
-pcbeta('labulac', 'Aa1357954163', 'http://bbs.pcbeta.com/member.php?mod=logging&action=login')
-kafan('740162752','1357954163Cxf','https://bbs.kafan.cn/member.php?mod=logging&action=login')
-ruipaike('740162752', 'Aa1357954163', 'https://www.repaik.com/member.php?mod=logging&action=login')
+def wuai(u, p, url,n):
+    try:
+        driver = webdriver.Chrome(chrome_options=option)
+        driver.get(url)
+
+        WebDriverWait(driver, 60).until(EC.presence_of_element_located(
+            (By.XPATH, "/html/body/div/div/div/form/div/div/p[1]/a/img")))
+        driver.find_element_by_xpath("/html/body/div/div/div/form/div/div/p[1]/a/img").click()
+        WebDriverWait(driver, 60).until(EC.presence_of_element_located(
+            (By.XPATH, ".//*[@id='ptlogin_iframe']")))
+        iframe = driver.find_element_by_xpath(".//*[@id='ptlogin_iframe']")
+        driver.switch_to_frame(iframe)
+        driver.find_element_by_xpath(".//*[@id='switcher_plogin']").click()
+        driver.find_element_by_xpath(".//*[@id='u']").send_keys(u)
+        driver.find_element_by_xpath(".//*[@id='p']").send_keys(p)
+        driver.find_element_by_xpath(".//*[@id='login_button']").click()
+
+        WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/p[2]/a[1]/img")))
+        driver.find_element_by_xpath(
+            "/html/body/div/div/div/div/p[2]/a[1]/img").click()
+
+        time.sleep(5)
+        driver.quit()
+        print("ok")
+    except Exception as error:
+        print(error)
+        push('用户名：' + u + '，站点：' + n + '，')
+
+
+
+
+'''macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/','Mac毒')
+macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/','Mac毒')
+pcbeta('labulac', 'Aa1357954163', 'http://bbs.pcbeta.com/member.php?mod=logging&action=login','远景')
+kafan('740162752','1357954163Cxf','https://bbs.kafan.cn/member.php?mod=logging&action=login','卡饭')
+ruipaike('740162752', 'Aa1357954163', 'https://www.repaik.com/member.php?mod=logging&action=login','睿派克')
+'''
+wuai('740162752','1357954163cxf','https://www.52pojie.cn/','吾爱')
