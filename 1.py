@@ -46,7 +46,7 @@ def push(name):
 update()
 option = webdriver.ChromeOptions()
 option.add_argument('--no-sandbox')
-option.add_argument('--headless')
+#option.add_argument('--headless')
 option.add_argument('--incognito')
 option.add_argument('--blink-settings=imagesEnabled=false')
 option.add_argument('--start-maximized')
@@ -67,6 +67,7 @@ def macdo(u, p, url):
             EC.presence_of_element_located((By.XPATH, "//*[@class='btn btn-warning btn-sm sign-btn']")))
         driver.find_element_by_xpath("//*[@class='btn btn-warning btn-sm sign-btn']").click()
         time.sleep(5)
+        driver.quit()
         print("ok")
     except Exception as error:
         print(error)
@@ -86,6 +87,7 @@ def pcbeta(u, p, url):
         time.sleep(30)
         driver.get('http://i.pcbeta.com/home.php?mod=task&do=apply&id=149')
         time.sleep(5)
+        driver.quit()
         print("ok")
     except Exception as error:
         print(error)
