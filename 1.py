@@ -47,7 +47,7 @@ def push(name):
 
 update()
 option = webdriver.ChromeOptions()
-#option.add_argument('-headless')
+option.add_argument('-headless')
 option.add_argument('-no-sandbox')
 option.add_argument('-incognito')
 option.add_argument('-blink-settings=imagesEnabled=false')
@@ -57,6 +57,18 @@ option.add_argument('-hide-scrollbars')
 option.add_argument('–single-process')
 option.add_argument('–lang=zh-CN')
 option.add_argument('–disable-images')
+
+
+def qqlogin(u,p):
+    driver = webdriver.Chrome(chrome_options=option)
+    WebDriverWait(driver, 60).until(EC.presence_of_element_located(
+        (By.XPATH, ".//*[@id='ptlogin_iframe']")))
+    iframe = driver.find_element_by_xpath(".//*[@id='ptlogin_iframe']")
+    driver.switch_to_frame(iframe)
+    driver.find_element_by_xpath(".//*[@id='switcher_plogin']").click()
+    driver.find_element_by_xpath(".//*[@id='u']").send_keys(u)
+    driver.find_element_by_xpath(".//*[@id='p']").send_keys(p)
+    driver.find_element_by_xpath(".//*[@id='login_button']").click()
 
 
 def macdo(u, p, url,n):
@@ -172,14 +184,7 @@ def wuai(u, p, url,n):
         WebDriverWait(driver, 60).until(EC.presence_of_element_located(
             (By.XPATH, "/html/body/div/div/div/form/div/div/p[1]/a/img")))
         driver.find_element_by_xpath("/html/body/div/div/div/form/div/div/p[1]/a/img").click()
-        WebDriverWait(driver, 60).until(EC.presence_of_element_located(
-            (By.XPATH, ".//*[@id='ptlogin_iframe']")))
-        iframe = driver.find_element_by_xpath(".//*[@id='ptlogin_iframe']")
-        driver.switch_to_frame(iframe)
-        driver.find_element_by_xpath(".//*[@id='switcher_plogin']").click()
-        driver.find_element_by_xpath(".//*[@id='u']").send_keys(u)
-        driver.find_element_by_xpath(".//*[@id='p']").send_keys(p)
-        driver.find_element_by_xpath(".//*[@id='login_button']").click()
+        qqlogin(u,p)
 
         WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/p[2]/a[1]/img")))
         driver.find_element_by_xpath(
