@@ -24,7 +24,7 @@ def update():
         print("更新脚本没有更新")
 
 
-def get(u, c,n):
+def get(u, c, n):
     headers = {
         "Cookie": c,
         "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.4 Mobile/15E148 Safari/604.1"
@@ -225,9 +225,8 @@ def wuai(n):
         print("ok")
     except Exception as error:
         print(error)
-        push('用户名：' + u + '，站点：' + n + '，')'''   #模拟登录，最好在国内QQ
+        push('用户名：' + u + '，站点：' + n + '，')'''  # 模拟登录，最好在国内QQ
 
-    print(n)
     cookie = 'Hm_lpvt_46d556462595ed05e05f009cdafff31a=1585824773; Hm_lvt_46d556462595ed05e05f009cdafff31a=1585824632,1585824729; htVD_2132_auth=c4d6Q7LNab2YubOlE5xkTt9Ie%2FcleP1BTK15VPQXROs1jxa4JL03csuTPZKn6WiE5Xdy3ydYu5X3qESrhjvaMi%2FkaHk; htVD_2132_checkfollow=1; htVD_2132_checkpm=1; htVD_2132_client_created=1585824767; htVD_2132_client_token=0CCAC93F86CF62B2AADDEFFA6E1BE5B3; htVD_2132_connect_is_bind=1; htVD_2132_connect_login=1; htVD_2132_connect_uin=0CCAC93F86CF62B2AADDEFFA6E1BE5B3; htVD_2132_lastact=1585824768%09home.php%09spacecp; htVD_2132_lastcheckfeed=689288%7C1585824768; htVD_2132_stats_qc_login=3; htVD_2132_ttask=689288%7C20200402; htVD_2132_ulastactivity=1585824767%7C0; htVD_2132_con_request_uri=https%3A%2F%2Fwww.52pojie.cn%2Fconnect.php%3Fmod%3Dlogin%26op%3Dcallback%26referer%3Dhttps%253A%252F%252Fwww.52pojie.cn%252F; htVD_2132_seccode=1516986.7c17cd1df34d2d3aac; __gads=ID=b387dfa2869a213e:T=1585824634:S=ALNI_MbbPJ1pCgZBXmO-KbRBsSnSBuKtPQ; htVD_2132_lastvisit=1585821029; htVD_2132_saltkey=J2iiPTBi'
 
     url1 = "https://www.52pojie.cn/home.php?mod=task&do=apply&id=2"
@@ -241,16 +240,19 @@ def wuai(n):
     try:
         r = requests.get(url1, headers=headers)
         r2 = requests.get(url2, headers=headers)
+
+        if (r.text.find("六个核的桃") == -1) or (r2.text.find("六个核的桃") == -1):
+            print("???")
+            push(n)
+        else:
+            print("ok")
     except Exception as e:
         print(e)
 
 
-
-
-'''macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/','Mac毒')
-macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/','Mac毒')
-pcbeta('labulac', 'Aa1357954163', 'http://bbs.pcbeta.com/member.php?mod=logging&action=login','远景')
-kafan('740162752','1357954163Cxf','https://bbs.kafan.cn/member.php?mod=logging&action=login','卡饭')
-ruipaike('740162752', 'Aa1357954163', 'https://www.repaik.com/member.php?mod=logging&action=login','睿派克')
-'''
+macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
+macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
+pcbeta('labulac', 'Aa1357954163', 'http://bbs.pcbeta.com/member.php?mod=logging&action=login', '远景')
+kafan('740162752', '1357954163Cxf', 'https://bbs.kafan.cn/member.php?mod=logging&action=login', '卡饭')
+ruipaike('740162752', 'Aa1357954163', 'https://www.repaik.com/member.php?mod=logging&action=login', '睿派克')
 wuai('吾爱')
