@@ -1,11 +1,11 @@
 import pyperclip
 
+# 复制好了的内容直接运行即可！！！
 
-a = [
-    "/html/body[@id='nv_home']/div[@id='wp']/div[@id='ct']/div[@id='main_message']/div[@class='f_c altw']/div[@id='messagelogin']/div[@id='main_messaqge_LzFWi']/div[@id='layer_login_LzFWi']/form[@id='loginform_LzFWi']/div[@class='c cl']/div[@class='rfm'][1]/table/tbody/tr/td[1]/input[@id='username_LzFWi']"
-]
+vvv = pyperclip.paste()
+a = [vvv]
 
-v=a[0]
+v = a[0]
 
 l = list(v)
 
@@ -27,13 +27,13 @@ q = []
 for i in range(len(e)):
 
     p = list(e[i])
-    if p[1]=='@':
+    if p[1] == '@':
         q.append(i)
 
 print(q)
 
 for i in range(len(q)):
-    v=v.replace(e[q[i]],'')
+    v = v.replace(e[q[i]], '')
 print(v)
 pyperclip.copy(v)
 print("已复制")
