@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.webdriver import ActionChains
 
 
 def update():
@@ -21,6 +22,22 @@ def update():
 
     else:
         print("更新脚本没有更新")
+
+
+def get(u, c,n):
+    headers = {
+        "Cookie": c,
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.4 Mobile/15E148 Safari/604.1"
+    }
+
+    a = requests.get(u, headers=headers)
+    time.sleep(10)
+
+    b = requests.get(u, headers=headers)
+    print(a.content.decode('unicode_escape'))
+
+    if a.text == b.text:
+        push(n)
 
 
 def push(name):
@@ -46,7 +63,7 @@ def push(name):
 
 update()
 option = webdriver.ChromeOptions()
-option.add_argument('-headless')
+#option.add_argument('-headless')
 option.add_argument('-no-sandbox')
 option.add_argument('-incognito')
 option.add_argument('-blink-settings=imagesEnabled=false')
@@ -163,8 +180,8 @@ def ruipaike(u, p, url, n):
         push('用户名：' + u + '，站点：' + n + '，')
 
 
-def wuai(u, p, url, n):
-    try:
+def wuai(u, p, url, n,c):
+    '''try:
         driver = webdriver.Chrome(chrome_options=option)
         driver.get(url)
 
@@ -182,6 +199,23 @@ def wuai(u, p, url, n):
         driver.find_element_by_xpath(".//*[@id='p']").send_keys(p)
         driver.find_element_by_xpath(".//*[@id='login_button']").click()
         # qq登录结束区
+        iframe = driver.find_element_by_xpath(".//*[@id='ptlogin_iframe']")
+        driver.switch_to.frame(iframe)
+        button = driver.find_element_by_id('tcaptcha_drag_button')  # 寻找滑块
+        print("寻找滑块")
+
+        time.sleep(1)
+
+        print("开始拖动")
+        distance = 175
+        action = ActionChains(driver)
+        action.reset_actions()
+        action.click_and_hold(button).perform()
+        action.move_by_offset(distance, 0).perform()
+        action.release().perform()
+
+
+
 
         WebDriverWait(driver, 60).until(
             EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/p[1]/strong/a")))
@@ -191,7 +225,11 @@ def wuai(u, p, url, n):
         print("ok")
     except Exception as error:
         print(error)
-        push('用户名：' + u + '，站点：' + n + '，')
+        push('用户名：' + u + '，站点：' + n + '，')'''   #模拟登录，最好在国内QQ
+    print(u, p)
+    get(url,c,n)
+
+
 
 
 '''macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/','Mac毒')
@@ -200,4 +238,4 @@ pcbeta('labulac', 'Aa1357954163', 'http://bbs.pcbeta.com/member.php?mod=logging&
 kafan('740162752','1357954163Cxf','https://bbs.kafan.cn/member.php?mod=logging&action=login','卡饭')
 ruipaike('740162752', 'Aa1357954163', 'https://www.repaik.com/member.php?mod=logging&action=login','睿派克')
 '''
-wuai('740162752', '1357954163cxf', 'https://www.52pojie.cn/', '吾爱')
+wuai('740162752', '1357954163cxf', 'https://www.52pojie.cn/home.php?mod=task&do=apply&id=2&mobile=n', '吾爱','Hm_lpvt_46d556462595ed05e05f009cdafff31a=1585824773; Hm_lvt_46d556462595ed05e05f009cdafff31a=1585824632,1585824729; htVD_2132_auth=c4d6Q7LNab2YubOlE5xkTt9Ie%2FcleP1BTK15VPQXROs1jxa4JL03csuTPZKn6WiE5Xdy3ydYu5X3qESrhjvaMi%2FkaHk; htVD_2132_checkfollow=1; htVD_2132_checkpm=1; htVD_2132_client_created=1585824767; htVD_2132_client_token=0CCAC93F86CF62B2AADDEFFA6E1BE5B3; htVD_2132_connect_is_bind=1; htVD_2132_connect_login=1; htVD_2132_connect_uin=0CCAC93F86CF62B2AADDEFFA6E1BE5B3; htVD_2132_lastact=1585824768%09home.php%09spacecp; htVD_2132_lastcheckfeed=689288%7C1585824768; htVD_2132_stats_qc_login=3; htVD_2132_ttask=689288%7C20200402; htVD_2132_ulastactivity=1585824767%7C0; htVD_2132_con_request_uri=https%3A%2F%2Fwww.52pojie.cn%2Fconnect.php%3Fmod%3Dlogin%26op%3Dcallback%26referer%3Dhttps%253A%252F%252Fwww.52pojie.cn%252F; htVD_2132_seccode=1516986.7c17cd1df34d2d3aac; __gads=ID=b387dfa2869a213e:T=1585824634:S=ALNI_MbbPJ1pCgZBXmO-KbRBsSnSBuKtPQ; htVD_2132_lastvisit=1585821029; htVD_2132_saltkey=J2iiPTBi')
