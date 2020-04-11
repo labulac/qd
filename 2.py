@@ -19,4 +19,4 @@ if a != b:
     print("已更新完成")
 
 else:
-    print("无更新")
+    print("没有更新")
