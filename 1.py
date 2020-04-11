@@ -5,6 +5,26 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import time
 
+def update():
+    with open('2.py', 'r') as f:
+        a = f.read()
+
+    print(a)
+
+    r = requests.get("https://qd.labulac.top/2.py")
+    b = r.text
+    print(b)
+
+    if a != b:
+        print("检测到更新")
+        with open("2.py", 'w') as f:
+            f.write(b)
+        print("更新脚本已更新完成")
+
+    else:
+        print("更新脚本没有更新")
+
+
 
 def push(name):
     url = "https://maker.ifttt.com/trigger/ppp/with/key/bm4a3i-fD-1FDWMKC4pqc1"
@@ -26,7 +46,7 @@ def push(name):
 
     print(response.text)
 
-
+update()
 option = webdriver.ChromeOptions()
 option.add_argument('--no-sandbox')
 option.add_argument('--headless')
@@ -49,6 +69,8 @@ def macdo(u, p, url):
         WebDriverWait(driver, 30).until(
             EC.presence_of_element_located((By.XPATH, "//*[@class='btn btn-warning btn-sm sign-btn']")))
         driver.find_element_by_xpath("//*[@class='btn btn-warning btn-sm sign-btn']").click()
+        time.sleep(5)
+        print("ok")
     except Exception as error:
         print(error)
         push('用户名：' + u + '，地址：' + url + '，')
@@ -66,7 +88,8 @@ def pcbeta(u, p, url):
         driver.find_element_by_xpath("//*[@class='pn pnc']").click()
         time.sleep(30)
         driver.get('http://i.pcbeta.com/home.php?mod=task&do=apply&id=149')
-        time.sleep(30)
+        time.sleep(5)
+        print("ok")
     except Exception as error:
         print(error)
         push('用户名：' + u + '，地址：' + url + '，')
