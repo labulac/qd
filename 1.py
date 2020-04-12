@@ -254,7 +254,7 @@ def wuai(n):
             print("???")
             push(n)
         else:
-            print(n+"ok2222")
+            print(n+"ok999")
     except Exception as e:
         print(e)
 
