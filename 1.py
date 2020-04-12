@@ -63,7 +63,7 @@ def push(name):
 
 update()
 option = webdriver.ChromeOptions()
-#option.add_argument('-headless')
+option.add_argument('-headless')
 option.add_argument('-no-sandbox')
 option.add_argument('-incognito')
 option.add_argument('-blink-settings=imagesEnabled=false')
@@ -259,9 +259,9 @@ def wuai(n):
         print(e)
 
 
-#macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
-#macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
+macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
+macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
 pcbeta('labulac', 'Aa1357954163', 'http://bbs.pcbeta.com/member.php?mod=logging&action=login', '远景')
-#kafan('740162752', '1357954163Cxf', 'https://bbs.kafan.cn/member.php?mod=logging&action=login', '卡饭')
-#ruipaike('740162752', 'Aa1357954163', 'https://www.repaik.com/member.php?mod=logging&action=login', '睿派克')
+kafan('740162752', '1357954163Cxf', 'https://bbs.kafan.cn/member.php?mod=logging&action=login', '卡饭')
+ruipaike('740162752', 'Aa1357954163', 'https://www.repaik.com/member.php?mod=logging&action=login', '睿派克')
 wuai('吾爱')
