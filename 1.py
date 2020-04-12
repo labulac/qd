@@ -91,7 +91,7 @@ def macdo(u, p, url, n):
         driver.find_element_by_xpath("//*[@class='btn btn-warning btn-sm sign-btn']").click()
         time.sleep(5)
         driver.quit()
-        print(n+"ok")
+        print('用户名：' + u + '，站点：' + n +"ok")
     except Exception as error:
         print(error)
         push('用户名：' + u + '，站点：' + n + '，')
@@ -117,7 +117,7 @@ def pcbeta(u, p, url, n):
         driver.get('http://i.pcbeta.com/home.php?mod=task&do=apply&id=149')
         time.sleep(5)
         driver.quit()
-        print(n+"ok")
+        print('用户名：' + u + '，站点：' + n +"ok")
     except Exception as error:
         print(error)
         push('用户名：' + u + '，站点：' + n + '，')
@@ -143,7 +143,7 @@ def kafan(u, p, url, n):
 
         time.sleep(5)
         driver.quit()
-        print(n+"ok")
+        print('用户名：' + u + '，站点：' + n +"ok")
     except Exception as error:
         print(error)
         push('用户名：' + u + '，站点：' + n + '，')
@@ -179,7 +179,7 @@ def ruipaike(u, p, url, n):
         time.sleep(5)
 
         driver.quit()
-        print(n+"ok")
+        print('用户名：' + u + '，站点：' + n +"ok")
     except Exception as error:
         print(error)
         push('用户名：' + u + '，站点：' + n + '，')
