@@ -238,6 +238,8 @@ def wuai(n):
     }
 
     try:
+        requests.get(url1, headers=headers)
+        requests.get(url2, headers=headers)
         r = requests.get(url1, headers=headers)
         r2 = requests.get(url2, headers=headers)
 
