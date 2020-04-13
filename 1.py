@@ -76,9 +76,10 @@ option.add_argument('–disable-images')
 
 
 def macdo(u, p, url, n):
+    driver = webdriver.Chrome(chrome_options=option)
     try:
         print(n+'开始')
-        driver = webdriver.Chrome(chrome_options=option)
+
         driver.get(url)
         WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, "//*[@id='go-signin']")))
 
@@ -93,14 +94,16 @@ def macdo(u, p, url, n):
         driver.quit()
         print('用户名：' + u + '，站点：' + n +"ok")
     except Exception as error:
+        driver.quit()
         print(error)
         push('用户名：' + u + '，站点：' + n + '，')
 
 
 def pcbeta(u, p, url, n):
+    driver = webdriver.Chrome(chrome_options=option)
     try:
         print(n + '开始')
-        driver = webdriver.Chrome(chrome_options=option)
+
         driver.get(url)
         print('开始查找输入框')
         WebDriverWait(driver, 60).until(EC.presence_of_element_located(
@@ -118,25 +121,30 @@ def pcbeta(u, p, url, n):
 
         WebDriverWait(driver, 60).until(
             EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/a[@class='new']")))
-        print('点击任务')
+
+        '''print('点击任务')
         driver.find_element_by_xpath("/html/body/div/div/div/div/a[@class='new']").click()
         print('查找签到')
         WebDriverWait(driver, 60).until(
             EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/div/table/tbody/tr/td[2]/a/img")))
         print('点击签到')
-        driver.find_element_by_xpath("/html/body/div/div/div/div/div/table/tbody/tr/td[2]/a/img").click()
-        time.sleep(5)
+        driver.find_element_by_xpath("/html/body/div/div/div/div/div/table/tbody/tr/td[2]/a/img").click()'''
+        print('签到')
+        driver.get('http://i.pcbeta.com/home.php?mod=task&do=apply&id=149')
+        time.sleep(10)
         driver.quit()
         print('用户名：' + u + '，站点：' + n +"ok")
     except Exception as error:
         print(error)
+        driver.quit()
         push('用户名：' + u + '，站点：' + n + '，')
 
 
 def kafan(u, p, url, n):
+    driver = webdriver.Chrome(chrome_options=option)
     try:
         print(n + '开始')
-        driver = webdriver.Chrome(chrome_options=option)
+
         driver.get(url)
 
         WebDriverWait(driver, 60).until(EC.presence_of_element_located(
@@ -154,14 +162,16 @@ def kafan(u, p, url, n):
         driver.quit()
         print('用户名：' + u + '，站点：' + n +"ok")
     except Exception as error:
+        driver.quit()
         print(error)
         push('用户名：' + u + '，站点：' + n + '，')
 
 
 def ruipaike(u, p, url, n):
+    driver = webdriver.Chrome(chrome_options=option)
     try:
         print(n + '开始')
-        driver = webdriver.Chrome(chrome_options=option)
+
         driver.get(url)
 
         WebDriverWait(driver, 60).until(EC.presence_of_element_located(
@@ -190,6 +200,7 @@ def ruipaike(u, p, url, n):
         driver.quit()
         print('用户名：' + u + '，站点：' + n +"ok")
     except Exception as error:
+        driver.quit()
         print(error)
         push('用户名：' + u + '，站点：' + n + '，')
 
