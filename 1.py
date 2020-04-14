@@ -121,14 +121,15 @@ def pcbeta(u, p, url, n):
                 "/html/body/div/div/div/div/div[2]/div/div/form/div/div[2]/table/tbody/tr/td[1]/input").send_keys(p)
             print('点击登录')
             driver.find_element_by_xpath("//*[@class='pn pnc']").click()
-            print('查找任务')
 
+            '''print('等等5s')
+            time.sleep(5)
+            driver.get('http://bbs.pcbeta.com/')'''
+
+            '''print('查找任务')
             WebDriverWait(driver, 60).until(
                 EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/a[@class='new']")))
-            print('等等5s')
-            time.sleep(5)
-
-            '''print('点击任务')
+            print('点击任务')
             driver.find_element_by_xpath("/html/body/div/div/div/div/a[@class='new']").click()
             print('查找签到')
             WebDriverWait(driver, 60).until(
@@ -291,9 +292,9 @@ def wuai(n):
         print(e)
 
 
-macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
-macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
+#macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
+#macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
 pcbeta('labulac', 'Aa1357954163', 'http://bbs.pcbeta.com/member.php?mod=logging&action=login', '远景')
-kafan('740162752', '1357954163Cxf', 'https://bbs.kafan.cn/member.php?mod=logging&action=login', '卡饭')
-ruipaike('740162752', 'Aa1357954163', 'https://www.repaik.com/member.php?mod=logging&action=login', '睿派克')
-wuai('吾爱')
+#kafan('740162752', '1357954163Cxf', 'https://bbs.kafan.cn/member.php?mod=logging&action=login', '卡饭')
+#ruipaike('740162752', 'Aa1357954163', 'https://www.repaik.com/member.php?mod=logging&action=login', '睿派克')
+#wuai('吾爱')
