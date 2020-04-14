@@ -78,7 +78,7 @@ option.add_argument('–disable-images')
 def macdo(u, p, url, n):
     driver = webdriver.Chrome(chrome_options=option)
     try:
-        print(n+'开始')
+        print(n + '开始')
 
         driver.get(url)
         WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, "//*[@id='go-signin']")))
@@ -92,7 +92,7 @@ def macdo(u, p, url, n):
         driver.find_element_by_xpath("//*[@class='btn btn-warning btn-sm sign-btn']").click()
         time.sleep(5)
         driver.quit()
-        print('用户名：' + u + '，站点：' + n +"ok")
+        print('用户名：' + u + '，站点：' + n + "ok")
     except Exception as error:
         driver.quit()
         print(error)
@@ -100,44 +100,55 @@ def macdo(u, p, url, n):
 
 
 def pcbeta(u, p, url, n):
-    driver = webdriver.Chrome(chrome_options=option)
-    try:
-        print(n + '开始')
+    attempts = 0
+    success = False
+    while attempts < 3 and not success:
 
-        driver.get(url)
-        print('开始查找输入框')
-        WebDriverWait(driver, 60).until(EC.presence_of_element_located(
-            (By.XPATH, "/html/body/div/div/div/div/div[2]/div/div/form/div/div[1]/table/tbody/tr/td[1]/input")))
-        print('开始输入u')
+        driver = webdriver.Chrome(chrome_options=option)
+        try:
+            print(n + '开始')
 
-        driver.find_element_by_xpath(
-            "/html/body/div/div/div/div/div[2]/div/div/form/div/div[1]/table/tbody/tr/td[1]/input").send_keys(u)
-        print('开始输入p')
-        driver.find_element_by_xpath(
-            "/html/body/div/div/div/div/div[2]/div/div/form/div/div[2]/table/tbody/tr/td[1]/input").send_keys(p)
-        print('点击登录')
-        driver.find_element_by_xpath("//*[@class='pn pnc']").click()
-        print('查找任务')
+            driver.get(url)
+            print('开始查找输入框')
+            WebDriverWait(driver, 60).until(EC.presence_of_element_located(
+                (By.XPATH, "/html/body/div/div/div/div/div[2]/div/div/form/div/div[1]/table/tbody/tr/td[1]/input")))
+            print('开始输入u')
 
-        WebDriverWait(driver, 60).until(
-            EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/a[@class='new']")))
+            driver.find_element_by_xpath(
+                "/html/body/div/div/div/div/div[2]/div/div/form/div/div[1]/table/tbody/tr/td[1]/input").send_keys(u)
+            print('开始输入p')
+            driver.find_element_by_xpath(
+                "/html/body/div/div/div/div/div[2]/div/div/form/div/div[2]/table/tbody/tr/td[1]/input").send_keys(p)
+            print('点击登录')
+            driver.find_element_by_xpath("//*[@class='pn pnc']").click()
+            print('查找任务')
 
-        '''print('点击任务')
-        driver.find_element_by_xpath("/html/body/div/div/div/div/a[@class='new']").click()
-        print('查找签到')
-        WebDriverWait(driver, 60).until(
-            EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/div/table/tbody/tr/td[2]/a/img")))
-        print('点击签到')
-        driver.find_element_by_xpath("/html/body/div/div/div/div/div/table/tbody/tr/td[2]/a/img").click()'''
-        print('签到')
-        driver.get('http://i.pcbeta.com/home.php?mod=task&do=apply&id=149')
-        time.sleep(5)
-        driver.quit()
-        print('用户名：' + u + '，站点：' + n +"ok")
-    except Exception as error:
-        print(error)
-        driver.quit()
-        push('用户名：' + u + '，站点：' + n + '，')
+            WebDriverWait(driver, 60).until(
+                EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/a[@class='new']")))
+            print('等等5s')
+            time.sleep(5)
+
+            '''print('点击任务')
+            driver.find_element_by_xpath("/html/body/div/div/div/div/a[@class='new']").click()
+            print('查找签到')
+            WebDriverWait(driver, 60).until(
+                EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/div/table/tbody/tr/td[2]/a/img")))
+            print('点击签到')
+            driver.find_element_by_xpath("/html/body/div/div/div/div/div/table/tbody/tr/td[2]/a/img").click()'''
+            print('签到')
+            driver.get('http://i.pcbeta.com/home.php?mod=task&do=apply&id=149')
+            print('10s')
+            time.sleep(10)
+            driver.quit()
+            print('用户名：' + u + '，站点：' + n + "ok")
+            success = True
+        except Exception as error:
+            print(error)
+            driver.quit()
+            attempts += 1
+            print('第' + str(attempts) + '次尝试')
+            if attempts == 3:
+                push('用户名：' + u + '，站点：' + n + '，')
 
 
 def kafan(u, p, url, n):
@@ -155,12 +166,13 @@ def kafan(u, p, url, n):
             "/html/body/div/div/div/div/div[2]/div/div/form/div/div[2]/table/tbody/tr/td[1]/input").send_keys(p)
         driver.find_element_by_xpath(
             "/html/body/div/div/div/div/div[2]/div/div/form/div/div/table/tbody/tr/td[1]/button/strong").click()
-        WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/a/img[@class='qq_bind']")))
+        WebDriverWait(driver, 60).until(
+            EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/a/img[@class='qq_bind']")))
         driver.find_element_by_xpath("/html/body/div/div/div/a/img[@class='qq_bind']").click()
 
         time.sleep(5)
         driver.quit()
-        print('用户名：' + u + '，站点：' + n +"ok")
+        print('用户名：' + u + '，站点：' + n + "ok")
     except Exception as error:
         driver.quit()
         print(error)
@@ -198,7 +210,7 @@ def ruipaike(u, p, url, n):
         time.sleep(5)
 
         driver.quit()
-        print('用户名：' + u + '，站点：' + n +"ok")
+        print('用户名：' + u + '，站点：' + n + "ok")
     except Exception as error:
         driver.quit()
         print(error)
@@ -274,14 +286,14 @@ def wuai(n):
             print("???")
             push(n)
         else:
-            print(n+"ok!!!")
+            print(n + "ok!!!")
     except Exception as e:
         print(e)
 
 
-macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
-macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
+#macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
+#macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
 pcbeta('labulac', 'Aa1357954163', 'http://bbs.pcbeta.com/member.php?mod=logging&action=login', '远景')
-kafan('740162752', '1357954163Cxf', 'https://bbs.kafan.cn/member.php?mod=logging&action=login', '卡饭')
-ruipaike('740162752', 'Aa1357954163', 'https://www.repaik.com/member.php?mod=logging&action=login', '睿派克')
-wuai('吾爱')
+#kafan('740162752', '1357954163Cxf', 'https://bbs.kafan.cn/member.php?mod=logging&action=login', '卡饭')
+#ruipaike('740162752', 'Aa1357954163', 'https://www.repaik.com/member.php?mod=logging&action=login', '睿派克')
+#wuai('吾爱')
