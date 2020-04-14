@@ -102,7 +102,7 @@ def macdo(u, p, url, n):
 def pcbeta(u, p, url, n):
     attempts = 0
     success = False
-    while attempts < 3 and not success:
+    while attempts < 4 and not success:
 
         driver = webdriver.Chrome(chrome_options=option)
         try:
@@ -147,7 +147,7 @@ def pcbeta(u, p, url, n):
             driver.quit()
             attempts += 1
             print('第' + str(attempts) + '次尝试')
-            if attempts == 3:
+            if attempts == 4:
                 push('用户名：' + u + '，站点：' + n + '，')
 
 
