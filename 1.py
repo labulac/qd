@@ -132,8 +132,8 @@ def pcbeta(u, p, url, n):
             print('点击登录')
             driver.find_element_by_xpath("//*[@class='pn pnc']").click()
 
-            print('等等10s')
-            time.sleep(10)
+            print('等等60s')
+            time.sleep(60)
             '''driver.get('http://bbs.pcbeta.com/')'''
 
             '''print('查找任务')
