@@ -149,6 +149,7 @@ def pcbeta(u, p, url, n):
             print('签到')
             driver.get('http://i.pcbeta.com/home.php?mod=task&do=apply&id=149')
             source = driver.page_source
+
             print(source)
             if ("抱歉，本期您已申请过此任务，请下期再来" in source):
 
