@@ -76,27 +76,36 @@ option.add_argument('–disable-images')
 
 
 def macdo(u, p, url, n):
-    driver = webdriver.Chrome(chrome_options=option)
-    try:
-        print(n + '开始')
+    attempts = 0
+    little = 0
+    success = False
+    while attempts < 4 and not success:
+        driver = webdriver.Chrome(chrome_options=option)
+        try:
+            print(n + '开始')
 
-        driver.get(url)
-        WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, "//*[@id='go-signin']")))
+            driver.get(url)
+            WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, "//*[@id='go-signin']")))
 
-        driver.find_element_by_xpath("//*[@id='go-signin']").click()
-        driver.find_element_by_xpath("//*[@id='user_login-input']").send_keys(u)
-        driver.find_element_by_xpath("//*[@id='password-input']").send_keys(p)
-        driver.find_element_by_xpath("//*[@class='btn btn-info btn-block submit']").click()
-        WebDriverWait(driver, 60).until(
-            EC.presence_of_element_located((By.XPATH, "//*[@class='btn btn-warning btn-sm sign-btn']")))
-        driver.find_element_by_xpath("//*[@class='btn btn-warning btn-sm sign-btn']").click()
-        time.sleep(5)
-        driver.quit()
-        print('用户名：' + u + '，站点：' + n + "ok")
-    except Exception as error:
-        driver.quit()
-        print(error)
-        push('用户名：' + u + '，站点：' + n + '，')
+            driver.find_element_by_xpath("//*[@id='go-signin']").click()
+            driver.find_element_by_xpath("//*[@id='user_login-input']").send_keys(u)
+            driver.find_element_by_xpath("//*[@id='password-input']").send_keys(p)
+            driver.find_element_by_xpath("//*[@class='btn btn-info btn-block submit']").click()
+            WebDriverWait(driver, 60).until(
+                EC.presence_of_element_located((By.XPATH, "//*[@class='btn btn-warning btn-sm sign-btn']")))
+            driver.find_element_by_xpath("//*[@class='btn btn-warning btn-sm sign-btn']").click()
+            time.sleep(5)
+            driver.quit()
+            print('用户名：' + u + '，站点：' + n + "ok")
+            success = True
+        except Exception as error:
+            print(error)
+            driver.quit()
+            attempts += 1
+            print('第' + str(attempts) + '次大尝试')
+            if attempts == 4:
+                push('用户名：' + u + '，站点：' + n + '，')
+                success = True
 
 
 def pcbeta(u, p, url, n):
@@ -166,69 +175,90 @@ def pcbeta(u, p, url, n):
 
 
 def kafan(u, p, url, n):
-    driver = webdriver.Chrome(chrome_options=option)
-    try:
-        print(n + '开始')
+    attempts = 0
+    little = 0
+    success = False
+    while attempts < 4 and not success:
 
-        driver.get(url)
+        driver = webdriver.Chrome(chrome_options=option)
+        try:
+            print(n + '开始')
 
-        WebDriverWait(driver, 60).until(EC.presence_of_element_located(
-            (By.XPATH, "/html/body/div/div/div/div/div[2]/div/div/form/div/div[1]/table/tbody/tr/td[1]/input")))
-        driver.find_element_by_xpath(
-            "/html/body/div/div/div/div/div[2]/div/div/form/div/div[1]/table/tbody/tr/td[1]/input").send_keys(u)
-        driver.find_element_by_xpath(
-            "/html/body/div/div/div/div/div[2]/div/div/form/div/div[2]/table/tbody/tr/td[1]/input").send_keys(p)
-        driver.find_element_by_xpath(
-            "/html/body/div/div/div/div/div[2]/div/div/form/div/div/table/tbody/tr/td[1]/button/strong").click()
-        WebDriverWait(driver, 60).until(
-            EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/a/img[@class='qq_bind']")))
-        driver.find_element_by_xpath("/html/body/div/div/div/a/img[@class='qq_bind']").click()
+            driver.get(url)
 
-        time.sleep(5)
-        driver.quit()
-        print('用户名：' + u + '，站点：' + n + "ok")
-    except Exception as error:
-        driver.quit()
-        print(error)
-        push('用户名：' + u + '，站点：' + n + '，')
+            WebDriverWait(driver, 60).until(EC.presence_of_element_located(
+                (By.XPATH, "/html/body/div/div/div/div/div[2]/div/div/form/div/div[1]/table/tbody/tr/td[1]/input")))
+            driver.find_element_by_xpath(
+                "/html/body/div/div/div/div/div[2]/div/div/form/div/div[1]/table/tbody/tr/td[1]/input").send_keys(u)
+            driver.find_element_by_xpath(
+                "/html/body/div/div/div/div/div[2]/div/div/form/div/div[2]/table/tbody/tr/td[1]/input").send_keys(p)
+            driver.find_element_by_xpath(
+                "/html/body/div/div/div/div/div[2]/div/div/form/div/div/table/tbody/tr/td[1]/button/strong").click()
+            WebDriverWait(driver, 60).until(
+                EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/a/img[@class='qq_bind']")))
+            driver.find_element_by_xpath("/html/body/div/div/div/a/img[@class='qq_bind']").click()
+
+            time.sleep(5)
+            driver.quit()
+            print('用户名：' + u + '，站点：' + n + "ok")
+            success = True
+        except Exception as error:
+            print(error)
+            driver.quit()
+            attempts += 1
+            print('第' + str(attempts) + '次大尝试')
+            if attempts == 4:
+                push('用户名：' + u + '，站点：' + n + '，')
+                success = True
 
 
 def ruipaike(u, p, url, n):
-    driver = webdriver.Chrome(chrome_options=option)
-    try:
-        print(n + '开始')
+    attempts = 0
+    little = 0
+    success = False
+    while attempts < 4 and not success:
 
-        driver.get(url)
 
-        WebDriverWait(driver, 60).until(EC.presence_of_element_located(
-            (By.XPATH, "/html/body/div/div/div/div/div[2]/div/div/form/div/div[1]/table/tbody/tr/td[1]/input")))
-        driver.find_element_by_xpath(
-            "/html/body/div/div/div/div/div[2]/div/div/form/div/div[1]/table/tbody/tr/td[1]/input").send_keys(u)
-        driver.find_element_by_xpath(
-            "/html/body/div/div/div/div/div[2]/div/div/form/div/div[2]/table/tbody/tr/td[1]/input").send_keys(p)
-        driver.find_element_by_xpath(
-            "/html/body/div/div/div/div/div[2]/div/div/form/div/div/table/tbody/tr/td[1]/button/strong").click()
-        WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/a")))
-        driver.get('https://www.repaik.com/plugin.php?id=dsu_paulsign:sign')
-        WebDriverWait(driver, 60).until(EC.presence_of_element_located(
-            (By.XPATH, "/html/body/div/div/div/div/form/table[1]/tbody/tr/td/ul/li[@id='kx']/center/img")))
-        driver.find_element_by_xpath(
-            "/html/body/div/div/div/div/form/table[1]/tbody/tr/td/ul/li[@id='kx']/center/img").click()
+        driver = webdriver.Chrome(chrome_options=option)
+        try:
+            print(n + '开始')
 
-        driver.find_element_by_xpath(
-            "/html/body/div/div/div/div/form/table/tbody/tr/td[1]/input[@id='todaysay']").send_keys("今天又是元气满满的呢！！")
+            driver.get(url)
 
-        driver.find_element_by_xpath(
-            "/html/body/div/div/div/div/form/table[1]/tbody/tr/td/div/a/img").click()
+            WebDriverWait(driver, 60).until(EC.presence_of_element_located(
+                (By.XPATH, "/html/body/div/div/div/div/div[2]/div/div/form/div/div[1]/table/tbody/tr/td[1]/input")))
+            driver.find_element_by_xpath(
+                "/html/body/div/div/div/div/div[2]/div/div/form/div/div[1]/table/tbody/tr/td[1]/input").send_keys(u)
+            driver.find_element_by_xpath(
+                "/html/body/div/div/div/div/div[2]/div/div/form/div/div[2]/table/tbody/tr/td[1]/input").send_keys(p)
+            driver.find_element_by_xpath(
+                "/html/body/div/div/div/div/div[2]/div/div/form/div/div/table/tbody/tr/td[1]/button/strong").click()
+            WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/a")))
+            driver.get('https://www.repaik.com/plugin.php?id=dsu_paulsign:sign')
+            WebDriverWait(driver, 60).until(EC.presence_of_element_located(
+                (By.XPATH, "/html/body/div/div/div/div/form/table[1]/tbody/tr/td/ul/li[@id='kx']/center/img")))
+            driver.find_element_by_xpath(
+                "/html/body/div/div/div/div/form/table[1]/tbody/tr/td/ul/li[@id='kx']/center/img").click()
 
-        time.sleep(5)
+            driver.find_element_by_xpath(
+                "/html/body/div/div/div/div/form/table/tbody/tr/td[1]/input[@id='todaysay']").send_keys("今天又是元气满满的呢！！")
 
-        driver.quit()
-        print('用户名：' + u + '，站点：' + n + "ok")
-    except Exception as error:
-        driver.quit()
-        print(error)
-        push('用户名：' + u + '，站点：' + n + '，')
+            driver.find_element_by_xpath(
+                "/html/body/div/div/div/div/form/table[1]/tbody/tr/td/div/a/img").click()
+
+            time.sleep(5)
+
+            driver.quit()
+            print('用户名：' + u + '，站点：' + n + "ok")
+            success = True
+        except Exception as error:
+            print(error)
+            driver.quit()
+            attempts += 1
+            print('第' + str(attempts) + '次大尝试')
+            if attempts == 4:
+                push('用户名：' + u + '，站点：' + n + '，')
+                success = True
 
 
 def wuai(n):
