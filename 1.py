@@ -150,12 +150,12 @@ def pcbeta(u, p, url, n):
             driver.get('http://i.pcbeta.com/home.php?mod=task&do=apply&id=149')
             source = driver.page_source
             print(source)
-            if (source.find("抱歉，本期您已申请过此任务，请下期再来") == -1):
+            if ("抱歉，本期您已申请过此任务，请下期再来" in source):
 
                 driver.quit()
                 print('用户名：' + u + '，站点：' + n + "ok")
                 success = True
-            elif (source.find("您需要先登录才能继续本操作") == -1):
+            elif ("您需要先登录才能继续本操作"in source):
                 driver.quit()
                 little += 1
                 print('第' + str(little) + '次小尝试')
