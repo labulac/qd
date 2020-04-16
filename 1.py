@@ -378,7 +378,7 @@ def wuai(n):
 
         if (r.text.find("六个核的桃") == -1) or (r2.text.find("六个核的桃") == -1):
             print("???")
-            push(n)
+            push('cookie失效，'+n)
         else:
             print(n + "ok!!!")
     except Exception as e:
