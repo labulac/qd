@@ -385,6 +385,10 @@ def wuai(n):
         print(e)
 
 
+
+
+
+
 pcbeta('labulac', 'Aa1357954163', 'http://bbs.pcbeta.com/member.php?mod=logging&action=login', '远景')
 macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
 macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
