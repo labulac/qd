@@ -130,8 +130,9 @@ def pcbeta(u, p, url, n):
             print('开始输入p')
             driver.find_element_by_xpath(
                 "/html/body/div/div/div/div/div[2]/div/div/form/div/div[2]/table/tbody/tr/td[1]/input").send_keys(p)
-            WebDriverWait(driver, 60).until(EC.presence_of_element_located(
+            element= WebDriverWait(driver, 60).until(EC.presence_of_element_located(
                 (By.XPATH, "//*[@class='pn pnc']/strong")))
+            
 
             print('点击登录')
             driver.find_element_by_xpath("//*[@class='pn pnc']/strong").click()
@@ -340,8 +341,8 @@ def wuai(n):
         print(e)
 
 
-#macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
-#macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
+macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
+macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
 pcbeta('labulac', 'Aa1357954163', 'http://bbs.pcbeta.com/member.php?mod=logging&action=login', '远景')
 kafan('740162752', '1357954163Cxf', 'https://bbs.kafan.cn/member.php?mod=logging&action=login', '卡饭')
 ruipaike('740162752', 'Aa1357954163', 'https://www.repaik.com/member.php?mod=logging&action=login', '睿派克')
