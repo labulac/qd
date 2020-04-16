@@ -1,10 +1,26 @@
 import time
 import requests
+import json
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
+
+
+def cccccc(a):
+    cc = ''
+
+    for cookie in a:
+        c = str('"%s"''=''"%s";' % (cookie['name'], cookie['value']))
+
+        cc = cc + c
+        print("'%s'='%s'" % (cookie['name'], cookie['value']))
+
+    # for i in range(len(ccccc)):
+
+    print(cc)
+    return cc
 
 
 def update():
@@ -111,7 +127,7 @@ def macdo(u, p, url, n):
 
 def pcbeta(u, p, url, n):
     attempts = 0
-    little=0
+    little = 0
     success = False
     while attempts < 4 and not success:
         time.sleep(5)
@@ -130,34 +146,61 @@ def pcbeta(u, p, url, n):
             print('开始输入p')
             driver.find_element_by_xpath(
                 "/html/body/div/div/div/div/div[2]/div/div/form/div/div[2]/table/tbody/tr/td[1]/input").send_keys(p)
-            element= WebDriverWait(driver, 60).until(EC.presence_of_element_located(
+            WebDriverWait(driver, 60).until(EC.presence_of_element_located(
                 (By.XPATH, "//*[@class='pn pnc']/strong")))
-            
 
             print('点击登录')
             driver.find_element_by_xpath("//*[@class='pn pnc']/strong").click()
 
-            print('等等10s')
-            time.sleep(10)
-            '''driver.get('http://bbs.pcbeta.com/')'''
+            print('等等30s')
+            time.sleep(30)
 
-            '''print('查找任务')
+            '''
+               driver.get('http://i.pcbeta.com/')
+                cookies = driver.get_cookies()
+                print(cookies)
+    
+                cookie = cccccc(cookies)
+    
+                url2 = "http://i.pcbeta.com/home.php?mod=task&do=apply&id=149"
+    
+                headers = {
+                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+                    'Accept-Encoding': 'gzip, deflate',
+                    'Accept-Language': 'zh-Hans-CN,zh-CN;q=0.9,zh;q=0.8,en;q=0.7,en-GB;q=0.6,en-US;q=0.5,af;q=0.4',
+                    'Cache-Control': 'no-cache',
+                    'Cookie': cookie,
+                    'dnt': '1',
+                    'Host': 'bbs.pcbeta.com',
+                    'Pragma': 'no-cache',
+                    'Proxy-Connection': 'keep-alive',
+                    'Upgrade-Insecure-Requests': '1',
+                    'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.92 Mobile Safari/537.36'
+                }
+    
+                requests.get(url2, headers=headers)
+                time.sleep(3)
+                r = requests.get(url2, headers=headers)
+                print(r.text)
+                '''
+
+            print('查找退出')
             WebDriverWait(driver, 60).until(
-                EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/a[@class='new']")))
-            print('点击任务')
+                EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/a[8]")))
+            '''print('点击任务')
             driver.find_element_by_xpath("/html/body/div/div/div/div/a[@class='new']").click()
             print('查找签到')
             WebDriverWait(driver, 60).until(
                 EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/div/table/tbody/tr/td[2]/a/img")))
             print('点击签到')
-            driver.find_element_by_xpath("/html/body/div/div/div/div/div/table/tbody/tr/td[2]/a/img").click()'''
-            print('签到')
+            driver.find_element_by_xpath("/html/body/div/div/div/div/div/table/tbody/tr/td[2]/a/img").click()
+            print('签到')'''
             driver.get('http://i.pcbeta.com/home.php?mod=task&do=apply&id=149')
             print('源码')
             source = driver.page_source
             print(source)
 
-            if ("抱歉，本期您已申请过此任务，请下期再来" in source):
+            if ("本期您已申请过此任务" in source):
 
                 driver.quit()
                 print('用户名：' + u + '，站点：' + n + "ok")
@@ -342,9 +385,9 @@ def wuai(n):
         print(e)
 
 
-#macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
-#macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
 pcbeta('labulac', 'Aa1357954163', 'http://bbs.pcbeta.com/member.php?mod=logging&action=login', '远景')
+macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
+macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
 kafan('740162752', '1357954163Cxf', 'https://bbs.kafan.cn/member.php?mod=logging&action=login', '卡饭')
 ruipaike('740162752', 'Aa1357954163', 'https://www.repaik.com/member.php?mod=logging&action=login', '睿派克')
 wuai('吾爱')
