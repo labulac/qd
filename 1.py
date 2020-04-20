@@ -413,7 +413,7 @@ def wuai(n):
         print(e)
 
 
-pcbetanew('labulac', 'http://i.pcbeta.com/home.php?mod=task&do=apply&id=149', '远景','Hm_lpvt_76c941eab16e9b48cd0fb4a6d9482a4f=1585631235; Hm_lvt_76c941eab16e9b48cd0fb4a6d9482a4f=1585630994; jqCP_887f_lastact=1585631234%09home.php%09task; jqCP_887f_sid=SJqoZn; jqCP_887f_uuid=4861988; jqCP_887f_home_diymode=1; jqCP_887f_viewuids=2091602; _ga=GA1.2.529656265.1585630919; _gid=GA1.2.1968332020.1585630919; jqCP_887f_mobile=no; jqCP_887f_checkpm=1; jqCP_887f_mrd=%09; jqCP_887f_sendmail=1; jqCP_887f_auth=722bGngd70GSYKBu0PI%2BDXsocMru2sSUz1WcVQ2kXojZsvOD2kUOhQMZDmMzfA%2BlV%2BG5nMEeaWKwFQvjxZEKttFGB3fg; jqCP_887f_ulastactivity=9209X%2BIwxqfd9aTT0HCPN8SX0ZuD541kXHmkn0amUvrUUKtWNoCr; jqCP_887f_lastvisit=1585627318; jqCP_887f_saltkey=T9759a2V')
+pcbetanew('labulac', 'http://i.pcbeta.com/home.php?mod=task&do=apply&id=149', '远景','Cookie: Hm_lpvt_76c941eab16e9b48cd0fb4a6d9482a4f=1587354209; Hm_lvt_76c941eab16e9b48cd0fb4a6d9482a4f=1586814749,1586903020,1587075355,1587353237; jqCP_887f_lastact=1587354208%09home.php%09task; jqCP_887f_sid=KSFuWj; jqCP_887f_uuid=4861988; jqCP_887f_checkpm=1; jqCP_887f_sendmail=1; _ga=GA1.2.199150614.1586567700; _gid=GA1.2.220666403.1587347434; jqCP_887f_mobile=no; jqCP_887f_mrd=%09; jqCP_887f_auth=be5bGLktzYaHXNFHQQPVHms01RdpcdQnvVnGZEAoFDZ%2BWi72yaySfxJ37uuZ7I%2BSUHkQToznPVIkHYpuptoR7tHARUmG; jqCP_887f_ulastactivity=6b9b56d5NQNPK94rVXDCEtYdVt1WI%2FEBuTSL%2Bj6Usgibttjbtyte; jqCP_887f_lastvisit=1587343845; jqCP_887f_saltkey=waA2QsJs')
 macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
 macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
 kafan('740162752', '1357954163Cxf', 'https://bbs.kafan.cn/member.php?mod=logging&action=login', '卡饭')
