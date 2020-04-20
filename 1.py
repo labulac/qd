@@ -205,7 +205,7 @@ def pcbeta(u, p, url, n):
                 driver.quit()
                 print('用户名：' + u + '，站点：' + n + "ok")
                 success = True
-            elif ("您需要先登录才能继续本操作"in source):
+            elif ("您需要先登录才能继续本操作" in source):
                 driver.quit()
                 little += 1
                 print('第' + str(little) + '次小尝试')
@@ -222,6 +222,34 @@ def pcbeta(u, p, url, n):
             print('第' + str(attempts) + '次大尝试')
             if attempts == 4:
                 push('用户名：' + u + '，站点：' + n + '，')
+
+
+def pcbetanew(u, url, n, cookie):
+    print(n + '开始')
+
+    headers = {
+        "Cookie": cookie,
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.4 Mobile/15E148 Safari/604.1"}
+
+    try:
+        html = requests.get(url, headers=headers).text
+
+        time.sleep(10)
+
+        if ("本期您已申请过此任务" in html):
+
+            print('用户名：' + u + '，站点：' + n + "ok")
+
+        else:
+
+            push('用户名：' + u + '，站点：' + n + '，')
+
+
+
+
+    except Exception as error:
+        print(error)
+        print('行号', error.__traceback__.tb_lineno)
 
 
 def kafan(u, p, url, n):
@@ -378,21 +406,16 @@ def wuai(n):
 
         if (r.text.find("六个核的桃") == -1) or (r2.text.find("六个核的桃") == -1):
             print("???")
-            push('cookie失效，'+n)
+            push('cookie失效，' + n)
         else:
             print(n + "ok!!!")
     except Exception as e:
         print(e)
 
 
-
-
-
-
-pcbeta('labulac', 'Aa1357954163', 'http://bbs.pcbeta.com/member.php?mod=logging&action=login', '远景')
+pcbetanew('labulac', 'http://i.pcbeta.com/home.php?mod=task&do=apply&id=149', '远景','Hm_lpvt_76c941eab16e9b48cd0fb4a6d9482a4f=1585631235; Hm_lvt_76c941eab16e9b48cd0fb4a6d9482a4f=1585630994; jqCP_887f_lastact=1585631234%09home.php%09task; jqCP_887f_sid=SJqoZn; jqCP_887f_uuid=4861988; jqCP_887f_home_diymode=1; jqCP_887f_viewuids=2091602; _ga=GA1.2.529656265.1585630919; _gid=GA1.2.1968332020.1585630919; jqCP_887f_mobile=no; jqCP_887f_checkpm=1; jqCP_887f_mrd=%09; jqCP_887f_sendmail=1; jqCP_887f_auth=722bGngd70GSYKBu0PI%2BDXsocMru2sSUz1WcVQ2kXojZsvOD2kUOhQMZDmMzfA%2BlV%2BG5nMEeaWKwFQvjxZEKttFGB3fg; jqCP_887f_ulastactivity=9209X%2BIwxqfd9aTT0HCPN8SX0ZuD541kXHmkn0amUvrUUKtWNoCr; jqCP_887f_lastvisit=1585627318; jqCP_887f_saltkey=T9759a2V')
 macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
 macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
 kafan('740162752', '1357954163Cxf', 'https://bbs.kafan.cn/member.php?mod=logging&action=login', '卡饭')
 wuai('吾爱')
 ruipaike('740162752', 'Aa1357954163', 'https://www.repaik.com/member.php?mod=logging&action=login', '睿派克')
-
