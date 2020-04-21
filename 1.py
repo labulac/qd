@@ -232,6 +232,8 @@ def pcbetanew(u, url, n, cookie):
         "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.4 Mobile/15E148 Safari/604.1"}
 
     try:
+        requests.get(url, headers=headers)
+        requests.get(url, headers=headers)
         html = requests.get(url, headers=headers).text
         #print(html)
 
