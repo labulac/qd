@@ -233,8 +233,9 @@ def pcbetanew(u, url, n, cookie):
 
     try:
         html = requests.get(url, headers=headers).text
+        #print(html)
 
-        time.sleep(10)
+
 
         if ("本期您已申请过此任务" in html):
 
