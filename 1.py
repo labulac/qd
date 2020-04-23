@@ -224,24 +224,33 @@ def pcbeta(u, p, url, n):
                 push('用户名：' + u + '，站点：' + n + '，')
 
 
-def pcbetanew(u, url, n, cookie):
+def pcbetanew(u, n):
     print(n + '开始')
+
+    url1 = 'http://i.pcbeta.com/home.php?mod=task&do=apply&id=149'
+    url2 = 'http://i.pcbeta.com/home.php?mod=task&do=draw&id=149'
+
+    cookie = 'Hm_lpvt_76c941eab16e9b48cd0fb4a6d9482a4f=1587615363; Hm_lvt_76c941eab16e9b48cd0fb4a6d9482a4f=1587075355,1587353237,1587594092,1587615362; jqCP_887f_lastact=1587615363%09home.php%09task; jqCP_887f_sid=qfcDB8; jqCP_887f_uuid=4861988; _ga=GA1.2.199150614.1586567700; _gid=GA1.2.654003139.1587594076; jqCP_887f_checkpm=1; jqCP_887f_mobile=no; jqCP_887f_mrd=%09; jqCP_887f_sendmail=1; jqCP_887f_auth=50faOh8s9r%2F37oWeL0HOi8Gf8zLjuk6Gd6DR2xf8uoNaK8cysPA%2BDsqntMsk5oYHnsDAyNfxCE9qOD8akNUWaD5fIuOm; _gat=1; jqCP_887f_ulastactivity=1384GXJ7oWZKvVe28nI8p2httMkaleLcvrkmwkh4ztPXt1Bn2TYH; jqCP_887f_lastvisit=1587343845; jqCP_887f_saltkey=waA2QsJs'
 
     headers = {
         "Cookie": cookie,
         "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.4 Mobile/15E148 Safari/604.1"}
 
+
     try:
-        requests.get(url, headers=headers)
-        requests.get(url, headers=headers)
-        html = requests.get(url, headers=headers).text
+
+
+        html = requests.get(url1, headers=headers).text
         #print(html)
 
-
+        time.sleep(5)
 
         if ("本期您已申请过此任务" in html):
 
-            print('用户名：' + u + '，站点：' + n + "ok")
+            h = requests.get(url2, headers=headers).text
+
+            if ("收到奖励通知" in h) or ("不是进行中的任务" in h):
+                print('用户名：' + u + '，站点：' + n + "ok")
 
         else:
 
@@ -416,7 +425,7 @@ def wuai(n):
         print(e)
 
 
-pcbetanew('labulac', 'http://i.pcbeta.com/home.php?mod=task&do=apply&id=149', '远景','Cookie: Hm_lpvt_76c941eab16e9b48cd0fb4a6d9482a4f=1587354209; Hm_lvt_76c941eab16e9b48cd0fb4a6d9482a4f=1586814749,1586903020,1587075355,1587353237; jqCP_887f_lastact=1587354208%09home.php%09task; jqCP_887f_sid=KSFuWj; jqCP_887f_uuid=4861988; jqCP_887f_checkpm=1; jqCP_887f_sendmail=1; _ga=GA1.2.199150614.1586567700; _gid=GA1.2.220666403.1587347434; jqCP_887f_mobile=no; jqCP_887f_mrd=%09; jqCP_887f_auth=be5bGLktzYaHXNFHQQPVHms01RdpcdQnvVnGZEAoFDZ%2BWi72yaySfxJ37uuZ7I%2BSUHkQToznPVIkHYpuptoR7tHARUmG; jqCP_887f_ulastactivity=6b9b56d5NQNPK94rVXDCEtYdVt1WI%2FEBuTSL%2Bj6Usgibttjbtyte; jqCP_887f_lastvisit=1587343845; jqCP_887f_saltkey=waA2QsJs')
+pcbetanew('labulac', '远景')
 macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
 macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
 kafan('740162752', '1357954163Cxf', 'https://bbs.kafan.cn/member.php?mod=logging&action=login', '卡饭')

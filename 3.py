@@ -1,21 +1,12 @@
-import time
+import requests
+import codecs
 
-from selenium import webdriver
+name='抖音短视频'
+baseurl='https://tools.lancely.tech'
+nameurl = baseurl + '/apple/app-search?country=cn&query='+name
+a=requests.get(nameurl)
 
-option = webdriver.ChromeOptions()
-option.add_argument('-headless')
-option.add_argument('-no-sandbox')
-option.add_argument('-incognito')
-option.add_argument('-blink-settings=imagesEnabled=false')
-option.add_argument('-ignore-certificate-errors')
-option.add_argument('-start-maximized')
-option.add_argument('-hide-scrollbars')
-option.add_argument('–single-process')
-option.add_argument('–lang=zh-CN')
-option.add_argument('–disable-images')
 
-driver = webdriver.Chrome(chrome_options=option)
-driver.get('https://www.alexamaster.net/Master/141662')
-time.sleep(600)
-
-driver.quit()
+visionurl =baseurl+'/apple/app-version/cn/1142110895'
+b=requests.get(visionurl)
+print(b.text)
