@@ -243,7 +243,7 @@ def pcbetanew(u, n):
 
         time.sleep(5)
 
-        if ("本期您已申请过此任务" in html):
+        if ("本期您已申请过此任务" in html) or ("成功" in html):
 
             h = requests.get(url2, headers=headers).text
 
@@ -252,7 +252,7 @@ def pcbetanew(u, n):
 
         else:
 
-            push('用户名：' + u + '，站点：' + n + '，')
+            push('用户名：' + u + '，站点：' + n + ',cookie失效，')
 
 
 
