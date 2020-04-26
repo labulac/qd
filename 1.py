@@ -244,7 +244,6 @@ def pcbetanew(u, n):
         # print(html)
 
 
-
         if ("本期您已申请过此任务" in html) or ("成功" in html):
 
             #h = requests.get(url2, headers=headers).text
