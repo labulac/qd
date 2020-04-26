@@ -237,18 +237,20 @@ def pcbetanew(u, n):
         "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.4 Mobile/15E148 Safari/604.1"}
 
     try:
+        requests.get(url1, headers=headers)
+        time.sleep(5)
 
         html = requests.get(url1, headers=headers).text
         # print(html)
 
-        time.sleep(5)
+
 
         if ("本期您已申请过此任务" in html) or ("成功" in html):
 
-            h = requests.get(url2, headers=headers).text
+            #h = requests.get(url2, headers=headers).text
 
-            if ("收到奖励通知" in h) or ("不是进行中的任务" in h):
-                print('用户名：' + u + '，站点：' + n + "ok")
+            #if ("收到奖励通知" in h) or ("不是进行中的任务" in h):
+            print('用户名：' + u + '，站点：' + n + "ok")
 
         else:
 
