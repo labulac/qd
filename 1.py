@@ -243,8 +243,6 @@ def pcbetanew(u, n):
         html = requests.get(url1, headers=headers).text
         # print(html)
 
-
-
         if ("本期您已申请过此任务" in html) or ("成功" in html):
 
             h = requests.get(url2, headers=headers).text
@@ -430,4 +428,4 @@ macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
 macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
 kafan('740162752', '1357954163Cxf', 'https://bbs.kafan.cn/member.php?mod=logging&action=login', '卡饭')
 wuai('吾爱')
-#ruipaike('740162752', 'Aa1357954163', 'https://www.repaik.com/member.php?mod=logging&action=login', '睿派克')
+# ruipaike('740162752', 'Aa1357954163', 'https://www.repaik.com/member.php?mod=logging&action=login', '睿派克')
