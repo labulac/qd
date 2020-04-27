@@ -238,7 +238,7 @@ def pcbetanew(u, n):
 
     try:
         requests.get(url1, headers=headers)
-        time.sleep(5)
+        time.sleep(10)
 
         html = requests.get(url1, headers=headers).text
         # print(html)
@@ -246,10 +246,10 @@ def pcbetanew(u, n):
 
         if ("本期您已申请过此任务" in html) or ("成功" in html):
 
-            #h = requests.get(url2, headers=headers).text
+            h = requests.get(url2, headers=headers).text
 
-            #if ("收到奖励通知" in h) or ("不是进行中的任务" in h):
-            print('用户名：' + u + '，站点：' + n + "ok")
+            if ("收到奖励通知" in h) or ("不是进行中的任务" in h):
+                print('用户名：' + u + '，站点：' + n + "ok")
 
         else:
 
