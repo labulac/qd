@@ -1,6 +1,7 @@
 import time
 import requests
 import json
+from lxml import etree
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -421,6 +422,7 @@ def wuai(n):
             print(n + "ok!!!")
     except Exception as e:
         print(e)
+
 
 
 pcbetanew('labulac', '远景')
