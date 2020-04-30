@@ -425,8 +425,8 @@ def wuai(n):
 
 
 def tianyi(n):
-    url = 'https://api.cloud.189.cn/mkt/userSign.action?clientType=TELEIPHONE&version=8.5.4&model=iPhone&osFamily=iOS&osVersion=12.4&clientSn=9C3FED06-D5E8-4A15-BEA4-390218BE5682'
-    headers = {
+    url1 = 'https://api.cloud.189.cn/mkt/userSign.action?clientType=TELEIPHONE&version=8.5.4&model=iPhone&osFamily=iOS&osVersion=12.4&clientSn=9C3FED06-D5E8-4A15-BEA4-390218BE5682'
+    headers1 = {
         "Accept": "*/*",
         "Accept-Encoding": "gzip",
         "Accept-Language": "zh-cn",
@@ -440,15 +440,39 @@ def tianyi(n):
         "sessionKey": "d7d9f24e-289c-4e9a-8f81-9336ce8ee95b",
     }
 
-    r = requests.get(url, headers=headers).text
+    r = requests.get(url1, headers=headers1).text
+
+    url2 = 'https://m.cloud.189.cn/v2/drawPrizeMarketDetails.action?taskId=TASK_SIGNIN&activityId=ACT_SIGNIN&noCache=0.5006331816484536'
+
+    headers2 = {
+        "Accept": "*/*",
+        "Accept-Encoding": "br, gzip, deflate",
+        "Accept-Language": "zh-cn",
+        "Connection": "close",
+        "Cookie": "COOKIE_LOGIN_USER=2DE7146F6D3627160ED15007AB19BCC2485815921574448B96BE30F8D7E669FE33145EF94A575C06BF99FCE72E3CC6E2E557C90F1096E4A72DC5636F; JSESSIONID=aaaHQl3caJ5ZGa9KBibhx; apm_ct=20200430000737325; apm_ip=58.219.213.96; apm_sid=4950972F722D0388761F5AE28EEA2F88; apm_ua=A40A13758A14B9205A83415498CE3559; apm_uid=C5A059FFD18E75743D4141FB4B318ACB",
+        "Host": "m.cloud.189.cn",
+        "Referer": "https://m.cloud.189.cn/zhuanti/2016/sign/index.jsp?albumBackupOpened=0",
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Ecloud/8.5.4 iOS/12.4 clientId/9C3FED06-D5E8-4A15-BEA4-390218BE5682 clientModel/iPhone proVersion/1.0.5",
+        "X-Requested-With": "XMLHttpRequest",
+        "Signature": "f2d3422fbb8789f6ac387ecd7a2904bd2f13b1aa",
+        "sessionKey": "083a7824-8c6e-429d-8c5d-2c898abdbbb6",
+    }
+
+    h = requests.get(url2, headers=headers2).text
+    print(h)
 
     if ("获得" in r):
-        print('天翼：' + "ok")
+        print('天翼云盘首页签到：' + "ok")
     else:
-        push(n)
+        push(n + '首页签到：')
+
+    if ("空间" in h):
+        print('天翼云盘额外领取：' + "ok")
+    else:
+        push(n + '额外领取：')
 
 
-tianyi('天翼云盘')
+# tianyi('天翼云盘')
 pcbetanew('labulac', '远景')
 macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
 macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
