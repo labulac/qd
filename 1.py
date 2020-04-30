@@ -263,7 +263,6 @@ def pcbetanew(u, n):
         print('行号', error.__traceback__.tb_lineno)
 
 
-
 def kafan(u, p, url, n):
     attempts = 0
     little = 0
@@ -425,21 +424,31 @@ def wuai(n):
         print(e)
 
 
-def tianyi():
-    url='https://api.cloud.189.cn/mkt/userSign.action?clientType=TELEIPHONE&version=8.5.4&model=iPhone&osFamily=iOS&osVersion=12.4&clientSn=9C3FED06-D5E8-4A15-BEA4-390218BE5682'
-    headers={
-    "Cookie":'JSESSIONID=aaabqAey1eSjD9cfAjWgx',
-    
-    "User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Ecloud/8.5.4 (iPhone; 9C3FED06-D5E8-4A15-BEA4-390218BE5682; appStore) iOS/12.4"}
-    r=requests.get(url,headers=headers).text
-    
-    
+def tianyi(n):
+    url = 'https://api.cloud.189.cn/mkt/userSign.action?clientType=TELEIPHONE&version=8.5.4&model=iPhone&osFamily=iOS&osVersion=12.4&clientSn=9C3FED06-D5E8-4A15-BEA4-390218BE5682'
+    headers = {
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip",
+        "Accept-Language": "zh-cn",
+        "Connection": "close",
+        "Cookie": "JSESSIONID=aaabqAey1eSjD9cfAjWgx",
+        "Date": "Wed, 29 Apr 2020 15:43:03 GMT",
+        "Host": "api.cloud.189.cn",
+        "Signature": "f2d3422fbb8789f6ac387ecd7a2904bd2f13b1aa",
+        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Ecloud/8.5.4 (iPhone; 9C3FED06-D5E8-4A15-BEA4-390218BE5682; appStore) iOS/12.4",
+        "X-Request-ID": "CCAC08E1C3A64857B3A75EDC6508B467",
+        "sessionKey": "d7d9f24e-289c-4e9a-8f81-9336ce8ee95b",
+    }
+
+    r = requests.get(url, headers=headers).text
+
     if ("获得" in r):
         print('天翼：' + "ok")
-    push(r)
+    else:
+        push(n)
 
 
-tianyi()
+tianyi('天翼云盘')
 pcbetanew('labulac', '远景')
 macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
 macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
