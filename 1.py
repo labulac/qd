@@ -428,12 +428,11 @@ def wuai(n):
 def tianyi():
     url='https://api.cloud.189.cn/mkt/userSign.action?clientType=TELEIPHONE&version=8.5.4&model=iPhone&osFamily=iOS&osVersion=12.4&clientSn=9C3FED06-D5E8-4A15-BEA4-390218BE5682'
     headers={
-    "cookie":'JSESSIONID=aaabqAey1eSjD9cfAjWgx',
+    "Cookie":'JSESSIONID=aaabqAey1eSjD9cfAjWgx',
     "Signature":'f2d3422fbb8789f6ac387ecd7a2904bd2f13b1aa',
     "X-Request-ID":"CCAC08E1C3A64857B3A75EDC6508B467",
     "sessionKey":"d7d9f24e-289c-4e9a-8f81-9336ce8ee95b",
-    "User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Ecloud/8.5.4 (iPhone; 9C3FED06-D5E8-4A15-BEA4-390218BE5682; appStore) iOS/12.4"
-}
+    "User-Agent":"Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Ecloud/8.5.4 (iPhone; 9C3FED06-D5E8-4A15-BEA4-390218BE5682; appStore) iOS/12.4"}
     r=requests.get(url,headers=headers).text
     
     
