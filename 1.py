@@ -476,6 +476,7 @@ def suchengma(n):
     url='https://sct.szgaj.cn/integralApi/sign'
     data={"Accept": "application/json, text/plain, */*","Accept-Encoding": "br, gzip, deflate","Accept-Language": "zh-cn","Authorization": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxODA1MTczNTUzNSIsImNyZWF0ZWQiOjE1OTA3NDE0NDE4MDQsImV4cCI6MTU5MTE3MzQ0MX0.vClpDgp8Gav7w4nCwIBOkt_ZjZUc8jFvmSexiIMKJVvQ9zHNb2frmrybScEuaCM0FOLYXPap6NqLX7FyXG8Qcg","Connection": "close","Content-Type": "application/x-www-form-urlencoded","Cookie": "SERVERID=c6ad355529ef561b1ed4b9aef69f94e8|1590741554|1590741554; Hm_lvt_d658bea862b5c5a67b2e9d308649bd27=1590741480","Host": "sct.szgaj.cn","Origin": "https://sct.szgaj.cn","Referer": "https://sct.szgaj.cn/integral/","User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148",}
     r =requests.post(url,data)
+    print(r.text + n)
     print(r.status_code + n)
     if r.status_code != 200：
         push (n)
