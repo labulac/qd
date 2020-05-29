@@ -478,7 +478,7 @@ def suchengma(n):
     r =requests.post(url,data)
     print(r.text + n)
     print(r.status_code + n)
-    if r.status_code != 200：
+    if r.status_code != 200:
         push (n)
 
 
