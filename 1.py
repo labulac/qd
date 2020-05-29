@@ -481,7 +481,7 @@ def suchengma(n):
     if r.status_code != 200:
         push (n)
 
-suchengma('苏城码')
+#suchengma('苏城码')
 # tianyi('天翼云盘')
 pcbetanew('labulac', '远景')
 macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
