@@ -470,12 +470,22 @@ def tianyi(n):
         print('天翼云盘额外领取：' + "ok")
     else:
         push(n + '额外领取：')
+        
+        
+def suchengma(n):
+    url='https://sct.szgaj.cn/integralApi/sign'
+    data={"Accept": "application/json, text/plain, */*","Accept-Encoding": "br, gzip, deflate","Accept-Language": "zh-cn","Authorization": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxODA1MTczNTUzNSIsImNyZWF0ZWQiOjE1OTA3NDE0NDE4MDQsImV4cCI6MTU5MTE3MzQ0MX0.vClpDgp8Gav7w4nCwIBOkt_ZjZUc8jFvmSexiIMKJVvQ9zHNb2frmrybScEuaCM0FOLYXPap6NqLX7FyXG8Qcg","Connection": "close","Content-Type": "application/x-www-form-urlencoded","Cookie": "SERVERID=c6ad355529ef561b1ed4b9aef69f94e8|1590741554|1590741554; Hm_lvt_d658bea862b5c5a67b2e9d308649bd27=1590741480","Host": "sct.szgaj.cn","Origin": "https://sct.szgaj.cn","Referer": "https://sct.szgaj.cn/integral/","User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148",}
+    r =requests.post(url,data)
+    print(r.status_code + n)
+    if r.status_code != 200：
+        push (n)
 
 
 # tianyi('天翼云盘')
 pcbetanew('labulac', '远景')
-#macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
-#macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
+macdo('740162752@qq.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
+macdo('18051735535@163.com', '1357954163', 'https://www.macdo.cn/', 'Mac毒')
 #kafan('740162752', '1357954163Cxf', 'https://bbs.kafan.cn/member.php?mod=logging&action=login', '卡饭')
 wuai('吾爱')
 # ruipaike('740162752', 'Aa1357954163', 'https://www.repaik.com/member.php?mod=logging&action=login', '睿派克')
+suchengma('苏城码')
