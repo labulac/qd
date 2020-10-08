@@ -58,7 +58,7 @@ def get(u, c, n):
 
 
 def push(name):
-    url = "https://maker.ifttt.com/trigger/ppp/with/key/bm4a3i-fD-1FDWMKC4pqc1"
+    url = "https://maker.ifttt.com/trigger/aaa/with/key/bm4a3i-fD-1FDWMKC4pqc1"
     payload = "{\n    \"value1\": \"" + name + "\"\n}"
     headers = {
         'Content-Type': "application/json",
