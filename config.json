@@ -1,0 +1,32 @@
+{
+    "log": {
+        "loglevel": "info"
+    },
+    "inbounds": [
+        {
+            "protocol": "vmess",
+            "port": 10000,
+            "listen": "127.0.0.1",
+            "settings": {
+                "clients": [
+                    {
+                        "alterId": 64,
+                        "id": "e3035aa7-fd0f-5fac-edb8-82eee1f18716"
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "wsSettings": {
+                    "path": "/hello"
+                }
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "tag": "direct",
+            "protocol": "freedom"
+        }
+    ]
+}
