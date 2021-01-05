@@ -3,8 +3,8 @@ yuan=C:/Users/muban.xlsx
 xian=D:/
 
 [update]
-updatemark=1
-github=https://qd.labulac.top/create_sheet_info.txt
+newversion=15
+downloadurl=https://cdn.jsdelivr.net/gh/labulac/qd@master/15.exe
 
-[url]
+[yiyan]
 yiyan=https://v1.jinrishici.com/rensheng.txt
