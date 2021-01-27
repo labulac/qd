@@ -1,5 +1,5 @@
 [dir]
-yuan=C:/Users/muban.xlsx
+yuan=D:/muban.xlsx
 xian=D:/sheet/
 
 [update]
